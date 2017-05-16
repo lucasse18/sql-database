@@ -12,7 +12,7 @@
 
 /** @var dsk_blk_id_t Definição do tipo que representa o id de um bloco.
  */
-typedef int disk_block_id_t;
+typedef struct DISK_BLOCK_ID disk_block_id_t;
 
 /** @brief Inicializa as estruturas de controle do banco.
  *
@@ -33,7 +33,7 @@ int dm_init(int dbsiz);
  *  @return  0 se sucesso
  *          -1 se escrita falhou
  */
-int dm_block_write(void *data, dsk_blk_id_t block);
+int dm_block_write(void *data, const disk_block_id_t *block);
 
 /** @brief Copia o conteúdo de um bloco do disco para um frame.
  *
@@ -42,7 +42,7 @@ int dm_block_write(void *data, dsk_blk_id_t block);
  *  @return  0 se sucesso
  *          -1 se leitura falhou
  */
-int dm_block_read(void *out, dsk_blk_id_t block);
+int dm_block_read(void *out, const disk_block_id_t *block);
 
 
 #endif //SQL_DATABASE_DISK_MANAGER_H

@@ -20,14 +20,14 @@ extern size_t page_size;
 /** @struct frame_dir_entry Estrutura que representa uma entrada no diretório de frames.
  */
 struct frame_dir_entry {
-  int blk_addr;  /**< Endereço do bloco representado pelo frame */
-  int pin_cnt;   /**< Número de requisições ativas do frame */
+  size_t blk_addr;  /**< Endereço do bloco representado pelo frame */
+  size_t pin_cnt;   /**< Número de requisições ativas do frame */
   bool is_dirty; /**< true se o frame foi modificado */
 };
 
 /** @var buffer_pool Ponteiro global para as páginas gerenciadas pelo buffer pool. Cada frame é
  *  acessado por meio de seu índice no diretório. Exemplo para obter o endereço do i-ésimo frame:
- *  @code void *frame_i = buffer_pool + (i * PAGE_SIZE);
+ *  @code void *endereco_frame_i = buffer_pool + (i * page_size);
  */
 void *buffer_pool = NULL;
 /* TODO usar vetor dinâmico para buffer_pool */
@@ -43,7 +43,7 @@ fifo_t *unused_frames = NULL;
 /** @brief Aplica uma política de substituição e seleciona um frame para ser substituído.
 
  *  @return Endereço do frame selecionado se sucesso.
- *         NULL se fracasso (nenhum frame candidato a substituição).
+ *          NULL se fracasso (nenhum frame candidato a substituição).
  */
 frame_t *bm_replace();
 
@@ -84,3 +84,9 @@ error:
 
   return -1;
 }
+
+/* Documentada em core/buffer_manager.h */
+void *bm_get_block(disk_block_id_t *blk_id) {
+
+}
+
