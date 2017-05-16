@@ -30,11 +30,14 @@ struct frame_dir_entry {
  *  @code void *frame_i = buffer_pool + (i * PAGE_SIZE);
  */
 void *buffer_pool = NULL;
+/* TODO usar vetor dinâmico para buffer_pool */
 
 /** @var frame_dir Ponteiro global para o diretório de frames.
  */
 frame_t *frame_dir = NULL;
 
+/** @var unused_frames Ponteiro global para a fila de frames com pin_count = 0
+ */
 fifo_t *unused_frames = NULL;
 
 /** @brief Aplica uma política de substituição e seleciona um frame para ser substituído.
@@ -55,6 +58,7 @@ frame_t *bm_replace();
  */
 int bm_writeout(frame_t *frame);
 
+/* Documentada em core/buffer_manager.h */
 int bm_init(size_t bufsiz) {
   check_mem(buffer_pool = malloc(bufsiz * page_size));
   check_mem(frame_dir = malloc(bufsiz * sizeof(struct frame_dir_entry)));

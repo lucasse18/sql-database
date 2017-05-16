@@ -1,3 +1,6 @@
+/* AVISO: implementação não testada */
+/* TODO reescrever fifo para fazer uso da estrutura de listas definida em linked_list.h */
+
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h> //memcpy

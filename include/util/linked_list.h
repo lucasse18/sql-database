@@ -1,3 +1,5 @@
+/* AVISO: implementação não testada */
+
 #ifndef SQL_DATABASE_LINKED_LIST_H
 #define SQL_DATABASE_LINKED_LIST_H
 

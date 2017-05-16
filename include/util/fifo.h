@@ -1,8 +1,9 @@
+/* AVISO: implementação não testada */
+/* TODO reescrever fifo para fazer uso da estrutura de listas definida em linked_list.h */
+
 #ifndef UTIL_FIFO_H
 #define UTIL_FIFO_H
 
-
-//FIXME works as expected when storing ints but valgrind throws some shady errors
 
 #include <stdlib.h>
 

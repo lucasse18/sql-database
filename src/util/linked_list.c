@@ -1,3 +1,5 @@
+/* AVISO: implementação não testada */
+
 #include <stdlib.h>
 #include <string.h> //memcpy
 #include <util/linked_list.h>

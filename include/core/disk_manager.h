@@ -1,7 +1,7 @@
 /** @file disk_manager.h
  *  @brief Protótipos de função do gerenciador de espaço em disco.
  *
- *  Este arquivo contém os protótipos, variáveis globais e macros
+ *  Este arquivo contém os protótipos de função, variáveis globais e macros
  *  usados pelo gerenciador de espaço em disco.
  *
  *  @author Lucas Santos Eleutério

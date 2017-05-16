@@ -1,7 +1,7 @@
 /** @file file_manager.h
  *  @brief Protótipos de função do gerenciador de arquivos.
  *
- *  Este arquivo contém os protótipos, variáveis globais e macros
+ *  Este arquivo contém os protótipos de função, variáveis globais e macros
  *  usados pelo gerenciador de arquivos.
  *
  *  @author Lucas Santos Eleutério

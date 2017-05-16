@@ -1,7 +1,7 @@
 /** @file buffer_manager.h
  *  @brief Protótipos de função do gerenciador de memória.
  *
- *  Este arquivo contém os protótipos, variáveis globais e macros
+ *  Este arquivo contém os protótipos de função, variáveis globais e macros
  *  usados pelo gerenciador de memória.
  *
  *  @author Lucas Santos Eleutério
@@ -45,7 +45,7 @@ int bm_init(size_t bufsiz);
  */
 void *bm_frame_alloc(disk_block_id_t blk_id);
 
-
+/* TODO documentar */
 void *bm_get_blk
 
 
