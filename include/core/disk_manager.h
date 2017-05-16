@@ -5,7 +5,6 @@
  *  usados pelo gerenciador de espaço em disco.
  *
  *  @author Lucas Santos Eleutério
- *  @bug Sem bugs conhecidos.
  */
 
 #ifndef SQL_DATABASE_DISK_MANAGER_H
@@ -13,7 +12,7 @@
 
 /** @var dsk_blk_id_t Definição do tipo que representa o id de um bloco.
  */
-typedef int dsk_blk_id_t;
+typedef int disk_block_id_t;
 
 /** @brief Inicializa as estruturas de controle do banco.
  *

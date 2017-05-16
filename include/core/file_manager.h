@@ -5,10 +5,13 @@
  *  usados pelo gerenciador de arquivos.
  *
  *  @author Lucas Santos Eleutério
- *  @bug Sem bugs conhecidos.
  */
 
 #ifndef SQL_DATABASE_FILE_MANAGER_H
 #define SQL_DATABASE_FILE_MANAGER_H
+
+
+
+
 
 #endif //SQL_DATABASE_FILE_MANAGER_H
