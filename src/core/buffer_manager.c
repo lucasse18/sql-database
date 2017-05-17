@@ -8,22 +8,21 @@
  */
 
 #include <stdbool.h>
-
 #include <core/buffer_manager.h>
 #include <util/debug.h>
 #include <util/fifo.h>
 
-/** @var page_size Tamanho máximo da página em bytes.
+/** @var page_size Declaração da variável que representa o tamanho máximo da página em bytes.
  */
 extern size_t page_size;
 
-/** @struct frame_dir_entry Estrutura que representa uma entrada no diretório de frames.
+/** @struct FRAME_DIR_ENTRY Estrutura que representa uma entrada no diretório de frames.
  */
-struct frame_dir_entry {
+typedef struct FRAME_DIR_ENTRY {
   size_t blk_addr;  /**< Endereço do bloco representado pelo frame */
   size_t pin_cnt;   /**< Número de requisições ativas do frame */
   bool is_dirty; /**< true se o frame foi modificado */
-};
+} frame_t;
 
 /** @var buffer_pool Ponteiro global para as páginas gerenciadas pelo buffer pool. Cada frame é
  *  acessado por meio de seu índice no diretório. Exemplo para obter o endereço do i-ésimo frame:
@@ -86,7 +85,7 @@ error:
 }
 
 /* Documentada em core/buffer_manager.h */
-void *bm_get_block(disk_block_id_t *blk_id) {
+void *bm_get_block(disk_block_id_t blk_id) {
 
 }
 

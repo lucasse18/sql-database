@@ -14,19 +14,14 @@
 #include <stdlib.h>
 #include <core/disk_manager.h>
 
-
-/** @typedef frame_t Estrutura que representa um frame da memória.
- */
-typedef struct frame_dir_entry frame_t;
-
 /** @brief Inicializa as estruturas de controle do gerenciador de memória.
  *
  *  Aloca uma área de memória a ser gerenciada (buffer pool) e inicializa
  *  os frames (endereço, pin_count e dirty_bit).
  *
  *  @param bufsiz Quantidade de frames a serem alocados no buffer pool.
- *  @return  0 se sucesso
- *          -1 se fracasso (memória insuficiente)
+ *  @return  0 se sucesso.
+ *          -1 se fracasso (memória insuficiente).
  */
 int bm_init(size_t bufsiz);
 
@@ -42,7 +37,7 @@ int bm_init(size_t bufsiz);
  *  @param blk_id Identificador de um bloco do disco a ser trazido para a memória.
  *  @return Endereço da área de dados do frame que contém o bloco requisitado.
  */
-void *bm_get_block(disk_block_id_t *blk_id);
+void *bm_get_block(disk_block_id_t blk_id);
 
 
 #endif //SQL_DATABASE_BUFFER_MANAGER_H

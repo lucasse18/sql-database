@@ -12,4 +12,5 @@ int list_append(list_t *list, const void *data);
 int list_remove(list_t *list, const void *key);
 int list_get(list_t *list, const void *key, void *dest);
 
+
 #endif //SQL_DATABASE_LINKED_LIST_H

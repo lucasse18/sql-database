@@ -10,9 +10,10 @@
 #ifndef SQL_DATABASE_DISK_MANAGER_H
 #define SQL_DATABASE_DISK_MANAGER_H
 
+
 /** @var dsk_blk_id_t Definição do tipo que representa o id de um bloco.
  */
-typedef struct DISK_BLOCK_ID disk_block_id_t;
+typedef size_t disk_block_id_t;
 
 /** @brief Inicializa as estruturas de controle do banco.
  *
@@ -20,9 +21,9 @@ typedef struct DISK_BLOCK_ID disk_block_id_t;
  *  utilizadas para gerenciar os blocos dentro do arquivo criado.
  *
  *  @param dbsiz Número máximo de blocos que o banco de dados poderá utilizar.
- *  @return 0 se sucesso
- *          1 se memória insuficiente para as estruturas de controle
- *          2 se espaço em disco insuficiente para armazenar o banco
+ *  @return 0 se sucesso.
+ *          1 se memória insuficiente para as estruturas de controle.
+ *          2 se espaço em disco insuficiente para armazenar o banco.
  */
 int dm_init(int dbsiz);
 
@@ -30,19 +31,19 @@ int dm_init(int dbsiz);
  *
  *  @param data Endereço do início da área de dados do frame a ser lido.
  *  @param block Endereço do bloco no qual a gravação será efetuada.
- *  @return  0 se sucesso
- *          -1 se escrita falhou
+ *  @return  0 se sucesso.
+ *          -1 se escrita falhou.
  */
-int dm_block_write(void *data, const disk_block_id_t *block);
+int dm_block_write(void *data, disk_block_id_t block);
 
 /** @brief Copia o conteúdo de um bloco do disco para um frame.
  *
  *  @param data Endereço do início da área de dados do frame a ser (sobr)escrito.
  *  @param block Endereço do bloco a ser lido.
- *  @return  0 se sucesso
- *          -1 se leitura falhou
+ *  @return  0 se sucesso.
+ *          -1 se leitura falhou.
  */
-int dm_block_read(void *out, const disk_block_id_t *block);
+int dm_block_read(void *out, disk_block_id_t block);
 
 
 #endif //SQL_DATABASE_DISK_MANAGER_H

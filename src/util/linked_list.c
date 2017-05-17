@@ -12,8 +12,8 @@ typedef struct UTIL_LIST_NODE {
 struct UTIL_LINKED_LIST {
   size_t memb_count; /**< Quantidade de membros atualmente armazenados pela lista */
   size_t data_size; /**< Tamanho de cada membro da lista */
-  node_t *head;
-  node_t *tail;
+  node_t *head; /**< Referência para o primeiro elemento da lista */
+  node_t *tail; /**< Referência para o último elemento da lista para permitir inserção O(1) */
 };
 
 list_t *list_create(size_t data_size) {
@@ -32,7 +32,7 @@ list_t *list_create(size_t data_size) {
 }
 
 list_t *list_destroy(list_t *list) {
-
+  /* TODO implement list_destroy */
 }
 
 int list_append(list_t *list, const void *data) {
@@ -50,5 +50,5 @@ int list_append(list_t *list, const void *data) {
 }
 
 int list_remove(list_t *list, const void *key) {
-
+  /* TODO implement list_remove */
 }
