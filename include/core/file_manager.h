@@ -1,10 +1,6 @@
 /** @file file_manager.h
- *  @brief Protótipos de função do gerenciador de arquivos.
- *
- *  Este arquivo contém os protótipos de função, variáveis globais e macros
+ *  @brief Este arquivo contém os protótipos de função, variáveis globais e macros
  *  usados pelo gerenciador de arquivos.
- *
- *  @author Lucas Santos Eleutério
  */
 
 #ifndef SQL_DATABASE_FILE_MANAGER_H
@@ -13,7 +9,11 @@
 
 /** @brief Inicializa as estruturas de controle do gerenciador de arquivos.
  *
- *  @return
+ *  Aloca uma área de memória para armazenar o diretório de frames e inicializa os membros dessa
+ *  estrutura.
+ *
+ *  @return  0, se sucesso.
+ *          -1, se fracasso (memória insuficiente).
  */
 int fm_init();
 
@@ -24,9 +24,9 @@ int fm_init();
  *  tabelas).
  *
  *  @param file_name String que representa o nome da tabela a ser inserida.
- *  @return  0 se sucesso.
- *           1 se memória insuficiente para as estruturas de controle.
- *           2 se espaço em disco insuficiente para armazenar a tabela.
+ *  @return  0, se sucesso.
+ *           1, se memória insuficiente para as estruturas de controle.
+ *           2, se espaço em disco insuficiente para armazenar a tabela.
  */
 int file_dir_append(const char *file_name);
 
@@ -37,8 +37,8 @@ int file_dir_append(const char *file_name);
  *  de arquivos.
  *
  *  @param file_name String que representa o nome da tabela a ser removida.
- *  @return  0 se sucesso.
- *          -1 se fracasso (tabela não encontrada).
+ *  @return  0, se sucesso.
+ *          -1, se fracasso (tabela não encontrada).
  */
 int file_dir_delete(const char *file_name);
 

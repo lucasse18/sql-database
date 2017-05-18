@@ -1,9 +1,10 @@
+/** @file disk_manager.c
+ *  @brief Este arquivo contém as estruturas e funções que implementam o funcionamento
+ *  do gerenciador de espaço em disco.
+ */
+
 #include <stdlib.h>
 #include <core/disk_manager.h>
-
-struct DISK_BLOCK_ID {
-  size_t id;
-};
 
 int dm_init(int dbsiz) {
 

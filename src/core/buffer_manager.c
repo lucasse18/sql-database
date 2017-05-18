@@ -1,10 +1,6 @@
 /** @file buffer_manager.c
- *  @brief Implementação das estruturas e funções do gerenciador de memória.
- *
- *  Este arquivo contém as estruturas e funções que implementam o funcionamento
+ *  @brief Este arquivo contém as estruturas e funções que implementam o funcionamento
  *  do gerenciador de memória.
- *
- *  @author Lucas Santos Eleutério
  */
 
 #include <stdbool.h>
@@ -12,37 +8,41 @@
 #include <util/debug.h>
 #include <util/fifo.h>
 
-/** @var page_size Declaração da variável que representa o tamanho máximo da página em bytes.
+/** @var page_size
+ *  @brief Declaração da variável que representa o tamanho máximo da página em bytes.
  */
 extern size_t page_size;
 
-/** @struct FRAME_DIR_ENTRY Estrutura que representa uma entrada no diretório de frames.
+/** @struct FRAME_DIR_ENTRY
+ *  @brief Estrutura que representa uma entrada no diretório de frames.
  */
 typedef struct FRAME_DIR_ENTRY {
-  size_t blk_addr;  /**< Endereço do bloco representado pelo frame */
-  size_t pin_cnt;   /**< Número de requisições ativas do frame */
-  bool is_dirty; /**< true se o frame foi modificado */
+  size_t blk_addr;  /**< Endereço do bloco representado pelo frame. */
+  size_t pin_cnt;   /**< Número de requisições ativas do frame. */
+  bool is_dirty; /**< true se o frame foi modificado. */
 } frame_t;
 
-/** @var buffer_pool Ponteiro global para as páginas gerenciadas pelo buffer pool. Cada frame é
+/** @var buffer_pool
+ *  @brief Ponteiro global para as páginas gerenciadas pelo buffer pool. Cada frame é
  *  acessado por meio de seu índice no diretório. Exemplo para obter o endereço do i-ésimo frame:
  *  @code void *endereco_frame_i = buffer_pool + (i * page_size);
  */
 void *buffer_pool = NULL;
 /* TODO usar vetor dinâmico para buffer_pool */
 
-/** @var frame_dir Ponteiro global para o diretório de frames.
+/** @var frame_dir
+ *  @brief Ponteiro global para o diretório de frames.
  */
 frame_t *frame_dir = NULL;
 
-/** @var unused_frames Ponteiro global para a fila de frames com pin_count = 0
+/** @var unused_frames
+ *  @brief Ponteiro global para a fila de frames com pin_count = 0.
  */
 fifo_t *unused_frames = NULL;
 
 /** @brief Aplica uma política de substituição e seleciona um frame para ser substituído.
-
- *  @return Endereço do frame selecionado se sucesso.
- *          NULL se fracasso (nenhum frame candidato a substituição).
+ *  @return Endereço do frame selecionado, se sucesso.
+ *          NULL, se fracasso (nenhum frame candidato a substituição).
  */
 frame_t *bm_replace();
 
@@ -52,8 +52,8 @@ frame_t *bm_replace();
  *  função é chamada para escrever seu conteúdo no disco antes da substituição.
  *
  *  @param frame Frame a ser escrito.
- *  @return  0 se sucesso.
- *          -1 se fracasso (escrita falhou).
+ *  @return  0, se sucesso.
+ *          -1, se fracasso (escrita falhou).
  */
 int bm_writeout(frame_t *frame);
 
